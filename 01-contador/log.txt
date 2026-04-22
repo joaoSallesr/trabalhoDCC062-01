@@ -1,0 +1,4 @@
+PURO: Valor esperado do contador: 400000
+PURO: Valor do contador: 134226
+PROTEGIDO: Valor esperado do contador: 400000
+PROTEGIDO: Valor do contador: 400000

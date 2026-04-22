@@ -1,0 +1,43 @@
+========== PRODUTOR x CONSUMIDOR - SEM PROTEÇÃO ==========
+[PRODUTOR] Inseriu: 0 | buffer: 1/5
+[PRODUTOR] Inseriu: 1 | buffer: 2/5
+[PRODUTOR] Inseriu: 2 | buffer: 3/5
+[PRODUTOR] Inseriu: 3 | buffer: 4/5
+[PRODUTOR] Inseriu: 4 | buffer: 5/5
+[PRODUTOR] Inseriu: 5 | buffer: 6/5
+[PRODUTOR] Inseriu: 6 | buffer: 7/5
+[PRODUTOR] Inseriu: 7 | buffer: 8/5
+[PRODUTOR] Inseriu: 8 | buffer: 9/5
+[PRODUTOR] Inseriu: 9 | buffer: 10/5
+[CONSUMIDOR] Removeu: 5 | buffer: 9/5
+[CONSUMIDOR] Removeu: 6 | buffer: 8/5
+[CONSUMIDOR] Removeu: 7 | buffer: 7/5
+[CONSUMIDOR] Removeu: 8 | buffer: 6/5
+[CONSUMIDOR] Removeu: 9 | buffer: 5/5
+[CONSUMIDOR] Removeu: 5 | buffer: 4/5
+[CONSUMIDOR] Removeu: 6 | buffer: 3/5
+[CONSUMIDOR] Removeu: 7 | buffer: 2/5
+[CONSUMIDOR] Removeu: 8 | buffer: 1/5
+[CONSUMIDOR] Removeu: 9 | buffer: 0/5
+
+========== PRODUTOR x CONSUMIDOR - COM PROTEÇÃO ==========
+[PRODUTOR] Inseriu: 0 | buffer: 1/5
+[PRODUTOR] Inseriu: 1 | buffer: 2/5
+[PRODUTOR] Inseriu: 2 | buffer: 3/5
+[PRODUTOR] Inseriu: 3 | buffer: 4/5
+[PRODUTOR] Inseriu: 4 | buffer: 5/5
+[CONSUMIDOR] Removeu: 0 | buffer: 4/5
+[CONSUMIDOR] Removeu: 1 | buffer: 3/5
+[CONSUMIDOR] Removeu: 2 | buffer: 2/5
+[CONSUMIDOR] Removeu: 3 | buffer: 1/5
+[CONSUMIDOR] Removeu: 4 | buffer: 0/5
+[PRODUTOR] Inseriu: 5 | buffer: 1/5
+[PRODUTOR] Inseriu: 6 | buffer: 2/5
+[PRODUTOR] Inseriu: 7 | buffer: 3/5
+[PRODUTOR] Inseriu: 8 | buffer: 4/5
+[PRODUTOR] Inseriu: 9 | buffer: 5/5
+[CONSUMIDOR] Removeu: 5 | buffer: 4/5
+[CONSUMIDOR] Removeu: 6 | buffer: 3/5
+[CONSUMIDOR] Removeu: 7 | buffer: 2/5
+[CONSUMIDOR] Removeu: 8 | buffer: 1/5
+[CONSUMIDOR] Removeu: 9 | buffer: 0/5
