@@ -1,0 +1,4 @@
+========== READERS x WRITERS - NO PROTECTION ==========
+Read: 48392/100000 | Written: 24910/60000
+========== READERS x WRITERS - PROTECTED ==========
+Read: 100000/100000 | Written: 60000/60000
