@@ -1,5 +1,9 @@
 #include "leit_escr.h"
 
+#define READERS 5
+#define WRITERS 3
+#define SHARED_SIZE 20000
+
 sem_t mutex;
 sem_t writers_sem;
 int readers_count = 0;

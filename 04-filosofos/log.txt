@@ -1,0 +1,15 @@
+========== DINNING PHILOSOPHERS - NO PROTECTION ==========
+
+>>>Timeout -> 5s<<<
+
+Philosopher 0 ate: 0/50
+Philosopher 1 ate: 0/50
+Philosopher 2 ate: 0/50
+Philosopher 3 ate: 0/50
+Philosopher 4 ate: 0/50
+========== DINNING PHILOSOPHERS - PROTECTED ==========
+Philosopher 0 ate: 50/50
+Philosopher 1 ate: 50/50
+Philosopher 2 ate: 50/50
+Philosopher 3 ate: 50/50
+Philosopher 4 ate: 50/50
