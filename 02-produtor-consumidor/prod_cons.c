@@ -2,7 +2,7 @@
 
 circular_buffer cb;
 
-sem_t mutex;
+pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 sem_t empty;
 sem_t full;
 
@@ -10,7 +10,6 @@ int main() {
     // BUFFER SEM PROTEÇÃO
     printf("========== PRODUTOR x CONSUMIDOR - SEM PROTEÇÃO ==========\n\r");
     zera_buffer();
-    sem_init(&mutex, 0, 1);
     sem_init(&empty, 0, BUF_LENGTH);
     sem_init(&full, 0, 0);
 
@@ -29,14 +28,12 @@ int main() {
     for (int i = 0; i < CONSUMIDOR; i++)
         pthread_join(consumidor[i], NULL);
 
-    sem_destroy(&mutex);
     sem_destroy(&empty);
     sem_destroy(&full);
 
     // BUFFER COM PROTEÇÃO
     printf("\n========== PRODUTOR x CONSUMIDOR - COM PROTEÇÃO ==========\n\r");
     zera_buffer();
-    sem_init(&mutex, 0, 1);
     sem_init(&empty, 0, BUF_LENGTH);
     sem_init(&full, 0, 0);
 
@@ -52,7 +49,6 @@ int main() {
     for (int i = 0; i < CONSUMIDOR; i++)
         pthread_join(consumidor[i], NULL);
 
-    sem_destroy(&mutex);
     sem_destroy(&empty);
     sem_destroy(&full);
 
@@ -93,11 +89,11 @@ void *produtor_puro(void *ptr) {
 void *produtor_protegido(void *ptr) {
     for (int i = 0; i < NUM_ITEMS; i++) {
         sem_wait(&empty);
-        sem_wait(&mutex);
+        pthread_mutex_lock(&lock);
 
         push(i);
 
-        sem_post(&mutex);
+        pthread_mutex_unlock(&lock);
         sem_post(&full);
     }
 
@@ -115,11 +111,11 @@ void *consumidor_puro(void *ptr) {
 void *consumidor_protegido(void *ptr) {
     for (int i = 0; i < NUM_ITEMS; i++) {
         sem_wait(&full);
-        sem_wait(&mutex);
+        pthread_mutex_lock(&lock);
 
         pop();
 
-        sem_post(&mutex);
+        pthread_mutex_unlock(&lock);
         sem_post(&empty);
     }
 

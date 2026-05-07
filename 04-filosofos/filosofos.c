@@ -9,16 +9,16 @@
 #define MAX_LOOP 50
 #define DEADLOCK_TIMEOUT 5
 
-sem_t mutex;
+pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 sem_t philosophers_sem[PHILOSOPHERS];
 sem_t forks_sem[PHILOSOPHERS];
+
 int state[PHILOSOPHERS];
 int meals[PHILOSOPHERS] = {0};
 
 int main() {
 
     printf("========== DINNING PHILOSOPHERS - NO PROTECTION ==========\n\r");
-    sem_init(&mutex, 0, 1);
     for (int i = 0; i < PHILOSOPHERS; i++) {
         sem_init(&forks_sem[i], 0, 1);
     }
@@ -38,7 +38,6 @@ int main() {
     for (int i = 0; i < PHILOSOPHERS; i++)
         pthread_join(philosophers[i], NULL);
 
-    sem_destroy(&mutex);
     for (int i = 0; i < PHILOSOPHERS; i++)
         sem_destroy(&forks_sem[i]);
 
@@ -46,7 +45,6 @@ int main() {
         printf("Philosopher %d ate: %d/%d\n", i, meals[i], MAX_LOOP);
 
     printf("========== DINNING PHILOSOPHERS - PROTECTED ==========\n\r");
-    sem_init(&mutex, 0, 1);
     for (int i = 0; i < PHILOSOPHERS; i++) {
         sem_init(&philosophers_sem[i], 0, 0);
     }
@@ -63,7 +61,6 @@ int main() {
     for (int i = 0; i < PHILOSOPHERS; i++)
         pthread_join(philosophers[i], NULL);
 
-    sem_destroy(&mutex);
     for (int i = 0; i < PHILOSOPHERS; i++)
         sem_destroy(&philosophers_sem[i]);
 
@@ -108,19 +105,19 @@ void put_forks_pure(int i) {
 }
 
 void take_forks_protected(int i) {
-    sem_wait(&mutex);
+    pthread_mutex_lock(&lock);
     state[i] = HUNGRY;
     check(i);
-    sem_post(&mutex);
+    pthread_mutex_unlock(&lock);
     sem_wait(&philosophers_sem[i]);
 }
 
 void put_forks_protected(int i) {
-    sem_wait(&mutex);
+    pthread_mutex_lock(&lock);
     state[i] = THINKING;
     check(LEFT);
     check(RIGHT);
-    sem_post(&mutex);
+    pthread_mutex_unlock(&lock);
 }
 
 void check(int i) {

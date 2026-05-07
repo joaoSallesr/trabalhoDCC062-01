@@ -11,7 +11,7 @@
 #define CADEIRAS 10
 #define CLIENTES 200
 
-sem_t mutex;
+pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 sem_t clientes_sem;
 sem_t barbeiros_sem;
 
@@ -27,7 +27,6 @@ void receber_corte();
 int main() {
 
     printf("========== BARBEIRO SONOLENTO ==========\n\r");
-    sem_init(&mutex, 0, 1);
     sem_init(&clientes_sem, 0, 0);
     sem_init(&barbeiros_sem, 0, 0);
 
@@ -56,28 +55,28 @@ int main() {
 void *barbeiro(void *ptr) {
     while (true) {
         sem_wait(&clientes_sem);
-        sem_wait(&mutex);
+        pthread_mutex_lock(&lock);
         esperando--;
-        sem_post(&mutex);
+        pthread_mutex_unlock(&lock);
         sem_post(&barbeiros_sem);
         fazer_corte();
     }
 }
 
 void *cliente(void *ptr) {
-    sem_wait(&mutex);
+    pthread_mutex_lock(&lock);
     if (CADEIRAS > esperando) {
         esperando++;
         sem_post(&clientes_sem);
-        sem_post(&mutex);
+        pthread_mutex_unlock(&lock);
         sem_wait(&barbeiros_sem);
         receber_corte();
-        sem_wait(&mutex);
+        pthread_mutex_lock(&lock);
         atendidos++;
-        sem_post(&mutex);
+        pthread_mutex_unlock(&lock);
     } else {
         dispensados++;
-        sem_post(&mutex);
+        pthread_mutex_unlock(&lock);
     }
     return NULL;
 }

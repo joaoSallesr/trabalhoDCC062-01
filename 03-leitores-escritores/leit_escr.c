@@ -4,7 +4,7 @@
 #define WRITERS 3
 #define SHARED_SIZE 20000
 
-sem_t mutex;
+pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 sem_t writers_sem;
 int readers_count = 0;
 int read_count = 0;
@@ -15,7 +15,6 @@ int shared[SHARED_SIZE];
 int main() {
     // ESCRITA SEM PROTEÇÃO
     printf("========== READERS x WRITERS - NO PROTECTION ==========\n\r");
-    sem_init(&mutex, 0, 1);
     sem_init(&writers_sem, 0, 1);
 
     pthread_t reader[READERS];
@@ -33,7 +32,6 @@ int main() {
     for (int i = 0; i < WRITERS; i++)
         pthread_join(writer[i], NULL);
 
-    sem_destroy(&mutex);
     sem_destroy(&writers_sem);
 
     printf("Read: %d/%d | Written: %d/%d\n", read_count, SHARED_SIZE * READERS,
@@ -44,7 +42,6 @@ int main() {
     readers_count = 0;
     read_count = 0;
     write_count = 0;
-    sem_init(&mutex, 0, 1);
     sem_init(&writers_sem, 0, 1);
 
     for (int i = 0; i < READERS; i++)
@@ -59,7 +56,6 @@ int main() {
     for (int i = 0; i < WRITERS; i++)
         pthread_join(writer[i], NULL);
 
-    sem_destroy(&mutex);
     sem_destroy(&writers_sem);
 
     printf("Read: %d/%d | Written: %d/%d\n", read_count, SHARED_SIZE * READERS,
@@ -81,25 +77,25 @@ void *reader_pure(void *ptr) {
 }
 
 void *reader_protected(void *ptr) {
-    sem_wait(&mutex);
+    pthread_mutex_lock(&lock);
     readers_count++;
     if (readers_count == 1)
         sem_wait(&writers_sem);
-    sem_post(&mutex);
+    pthread_mutex_unlock(&lock);
 
     int a = 0;
     for (int i = 0; i < SHARED_SIZE; i++) {
         a = shared[i];
-        sem_wait(&mutex);
+        pthread_mutex_lock(&lock);
         read_count++;
-        sem_post(&mutex);
+        pthread_mutex_unlock(&lock);
     }
 
-    sem_wait(&mutex);
+    pthread_mutex_lock(&lock);
     readers_count--;
     if (readers_count == 0)
         sem_post(&writers_sem);
-    sem_post(&mutex);
+    pthread_mutex_unlock(&lock);
 }
 
 void *writer_pure(void *ptr) {
@@ -112,9 +108,9 @@ void *writer_protected(void *ptr) {
     sem_wait(&writers_sem);
     for (int i = 0; i < SHARED_SIZE; i++) {
         shared[i] = i;
-        sem_wait(&mutex);
+        pthread_mutex_lock(&lock);
         write_count++;
-        sem_post(&mutex);
+        pthread_mutex_unlock(&lock);
     }
     sem_post(&writers_sem);
 }
