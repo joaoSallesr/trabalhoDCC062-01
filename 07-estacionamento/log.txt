@@ -1,0 +1,7 @@
+========== ESTACIONAMENTO - SEM PROTEÇÃO ==========
+
+Entraram: 849/5000 | Rejeitados: 4151/5000 | Ocupacao maxima: 105/100 | Overflows: 411
+
+========== ESTACIONAMENTO - COM PROTEÇÃO ==========
+
+Entraram: 807/5000 | Rejeitados: 4193/5000 | Ocupacao maxima: 100/100

@@ -66,14 +66,13 @@ int main() {
 
 void *reader_pure(void *ptr) {
     readers_count++;
-    int a = 0;
-
     for (int i = 0; i < SHARED_SIZE; i++) {
-        a = shared[i];
+        (void)shared[i];
         read_count++;
     }
 
     readers_count--;
+    return NULL;
 }
 
 void *reader_protected(void *ptr) {
@@ -83,9 +82,8 @@ void *reader_protected(void *ptr) {
         sem_wait(&writers_sem);
     pthread_mutex_unlock(&lock);
 
-    int a = 0;
     for (int i = 0; i < SHARED_SIZE; i++) {
-        a = shared[i];
+        (void)shared[i];
         pthread_mutex_lock(&lock);
         read_count++;
         pthread_mutex_unlock(&lock);
@@ -96,6 +94,7 @@ void *reader_protected(void *ptr) {
     if (readers_count == 0)
         sem_post(&writers_sem);
     pthread_mutex_unlock(&lock);
+    return NULL;
 }
 
 void *writer_pure(void *ptr) {
@@ -103,14 +102,14 @@ void *writer_pure(void *ptr) {
         shared[i] = i;
         write_count++;
     }
+    return NULL;
 }
 void *writer_protected(void *ptr) {
     sem_wait(&writers_sem);
     for (int i = 0; i < SHARED_SIZE; i++) {
         shared[i] = i;
-        pthread_mutex_lock(&lock);
         write_count++;
-        pthread_mutex_unlock(&lock);
     }
     sem_post(&writers_sem);
+    return NULL;
 }
