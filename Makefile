@@ -29,3 +29,22 @@ impressora:
 
 clean:
 	find . -type f -executable -not -name "*.c" -not -name "Makefile" -delete
+
+run: all
+	@echo "Running all simulations..." > log.txt
+	@echo "" >> log.txt
+	./01-contador/contador >> log.txt
+	@echo "" >> log.txt
+	./02-produtor-consumidor/prod_cons >> log.txt
+	@echo "" >> log.txt
+	./03-leitores-escritores/leit_escr >> log.txt
+	@echo "" >> log.txt
+	./04-filosofos/filosofos >> log.txt
+	@echo "" >> log.txt
+	./05-barbeiro/barbeiro >> log.txt
+	@echo "" >> log.txt
+	./07-estacionamento/estacionamento >> log.txt
+	@echo "" >> log.txt
+	./08-impressora/impressora >> log.txt
+	@echo "" >> log.txt
+	@echo "Done. Results saved to log.txt"
