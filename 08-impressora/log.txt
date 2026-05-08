@@ -1,0 +1,84 @@
+========== IMPRESSORA - SEM PROTEÇÃO ==========
+[IMPRESSORA] Imprimindo job 0 do processo 0 (0 paginas)
+[PROCESSO 0] Enviou job 0 (4 paginas) | fila: 0/10
+[PROCESSO 0] Enviou job 1 (2 paginas) | fila: 1/10
+[PROCESSO 0] Enviou job 2 (3 paginas) | fila: 2/10
+[PROCESSO 0] Enviou job 3 (1 paginas) | fila: 3/10
+[PROCESSO 1] Enviou job 0 (4 paginas) | fila: 4/10
+[PROCESSO 1] Enviou job 1 (1 paginas) | fila: 5/10
+[PROCESSO 1] Enviou job 2 (2 paginas) | fila: 6/10
+[PROCESSO 1] Enviou job 3 (3 paginas) | fila: 7/10
+[IMPRESSORA] Imprimindo job 1 do processo 0 (2 paginas)
+[PROCESSO 2] Enviou job 0 (5 paginas) | fila: 7/10
+[PROCESSO 2] Enviou job 1 (2 paginas) | fila: 8/10
+[PROCESSO 2] Enviou job 2 (3 paginas) | fila: 9/10
+[PROCESSO 2] Enviou job 3 (3 paginas) | fila: 10/10
+[PROCESSO 3] Enviou job 0 (1 paginas) | fila: 11/10
+[PROCESSO 3] Enviou job 1 (5 paginas) | fila: 12/10
+[PROCESSO 3] Enviou job 2 (4 paginas) | fila: 13/10
+[PROCESSO 3] Enviou job 3 (2 paginas) | fila: 14/10
+[PROCESSO 4] Enviou job 0 (1 paginas) | fila: 15/10
+[PROCESSO 4] Enviou job 1 (2 paginas) | fila: 16/10
+[PROCESSO 4] Enviou job 2 (3 paginas) | fila: 17/10
+[PROCESSO 4] Enviou job 3 (2 paginas) | fila: 18/10
+[IMPRESSORA] Imprimindo job 0 do processo 3 (1 paginas)
+[IMPRESSORA] Imprimindo job 1 do processo 3 (5 paginas)
+[IMPRESSORA] Imprimindo job 2 do processo 3 (4 paginas)
+[IMPRESSORA] Imprimindo job 3 do processo 3 (2 paginas)
+[IMPRESSORA] Imprimindo job 0 do processo 4 (1 paginas)
+[IMPRESSORA] Imprimindo job 1 do processo 4 (2 paginas)
+[IMPRESSORA] Imprimindo job 2 do processo 4 (3 paginas)
+[IMPRESSORA] Imprimindo job 3 do processo 4 (2 paginas)
+[IMPRESSORA] Imprimindo job 2 do processo 2 (3 paginas)
+[IMPRESSORA] Imprimindo job 3 do processo 2 (3 paginas)
+[IMPRESSORA] Imprimindo job 0 do processo 3 (1 paginas)
+[IMPRESSORA] Imprimindo job 1 do processo 3 (5 paginas)
+[IMPRESSORA] Imprimindo job 2 do processo 3 (4 paginas)
+[IMPRESSORA] Imprimindo job 3 do processo 3 (2 paginas)
+[IMPRESSORA] Imprimindo job 0 do processo 4 (1 paginas)
+[IMPRESSORA] Imprimindo job 1 do processo 4 (2 paginas)
+[IMPRESSORA] Imprimindo job 2 do processo 4 (3 paginas)
+[IMPRESSORA] Imprimindo job 3 do processo 4 (2 paginas)
+Enviados: 20/20 | Impressos: 20/20
+========== IMPRESSORA - COM PROTEÇÃO ==========
+[PROCESSO 0] Enviou job 0 (2 paginas) | fila: 1/10
+[PROCESSO 1] Enviou job 0 (4 paginas) | fila: 2/10
+[PROCESSO 1] Enviou job 1 (3 paginas) | fila: 3/10
+[PROCESSO 1] Enviou job 2 (5 paginas) | fila: 4/10
+[PROCESSO 1] Enviou job 3 (3 paginas) | fila: 5/10
+[PROCESSO 0] Enviou job 1 (1 paginas) | fila: 6/10
+[PROCESSO 0] Enviou job 2 (3 paginas) | fila: 7/10
+[PROCESSO 0] Enviou job 3 (4 paginas) | fila: 8/10
+[PROCESSO 2] Enviou job 0 (3 paginas) | fila: 9/10
+[PROCESSO 2] Enviou job 1 (1 paginas) | fila: 10/10
+[IMPRESSORA] Imprimindo job 0 do processo 0 (2 paginas)
+[PROCESSO 2] Enviou job 2 (5 paginas) | fila: 10/10
+[IMPRESSORA] Imprimindo job 0 do processo 1 (4 paginas)
+[PROCESSO 2] Enviou job 3 (3 paginas) | fila: 10/10
+[IMPRESSORA] Imprimindo job 1 do processo 1 (3 paginas)
+[PROCESSO 3] Enviou job 0 (3 paginas) | fila: 10/10
+[IMPRESSORA] Imprimindo job 2 do processo 1 (5 paginas)
+[PROCESSO 4] Enviou job 0 (4 paginas) | fila: 10/10
+[IMPRESSORA] Imprimindo job 3 do processo 1 (3 paginas)
+[PROCESSO 3] Enviou job 1 (5 paginas) | fila: 10/10
+[IMPRESSORA] Imprimindo job 1 do processo 0 (1 paginas)
+[PROCESSO 4] Enviou job 1 (3 paginas) | fila: 10/10
+[IMPRESSORA] Imprimindo job 2 do processo 0 (3 paginas)
+[PROCESSO 3] Enviou job 2 (4 paginas) | fila: 10/10
+[IMPRESSORA] Imprimindo job 3 do processo 0 (4 paginas)
+[PROCESSO 4] Enviou job 2 (2 paginas) | fila: 10/10
+[IMPRESSORA] Imprimindo job 0 do processo 2 (3 paginas)
+[PROCESSO 3] Enviou job 3 (2 paginas) | fila: 10/10
+[IMPRESSORA] Imprimindo job 1 do processo 2 (1 paginas)
+[PROCESSO 4] Enviou job 3 (3 paginas) | fila: 10/10
+[IMPRESSORA] Imprimindo job 2 do processo 2 (5 paginas)
+[IMPRESSORA] Imprimindo job 3 do processo 2 (3 paginas)
+[IMPRESSORA] Imprimindo job 0 do processo 3 (3 paginas)
+[IMPRESSORA] Imprimindo job 0 do processo 4 (4 paginas)
+[IMPRESSORA] Imprimindo job 1 do processo 3 (5 paginas)
+[IMPRESSORA] Imprimindo job 1 do processo 4 (3 paginas)
+[IMPRESSORA] Imprimindo job 2 do processo 3 (4 paginas)
+[IMPRESSORA] Imprimindo job 2 do processo 4 (2 paginas)
+[IMPRESSORA] Imprimindo job 3 do processo 3 (2 paginas)
+[IMPRESSORA] Imprimindo job 3 do processo 4 (3 paginas)
+Enviados: 20/20 | Impressos: 20/20
